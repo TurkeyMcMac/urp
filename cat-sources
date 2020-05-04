@@ -1,0 +1,8 @@
+#!/bin/sh
+# Concatenates the list of C source files to stdout.
+
+echo '/* This is an auto-generated concatenation. */'
+for source in "$@"; do
+	echo "#line 1 \"$source\""
+	cat "$source"
+done
