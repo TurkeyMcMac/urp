@@ -1,7 +1,7 @@
 /* This is an auto-generated concatenation. */
 #line 1 "src/urp_read_dword.c"
 #include "urp.h"
-#include <string.h>
+#include <avr/pgmspace.h>
 
 uint32_t urp_read_dword(URPTR ptr)
 {

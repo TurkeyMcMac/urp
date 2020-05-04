@@ -1,5 +1,5 @@
 #include "urp.h"
-#include <string.h>
+#include <avr/pgmspace.h>
 
 uint32_t urp_read_dword(URPTR ptr)
 {
