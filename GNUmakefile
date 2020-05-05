@@ -13,7 +13,7 @@ $(static): $(objects)
 	avr-ar crsu $@ $+
 
 $(single-file): $(sources)
-	./cat-sources $+ > $@
+	./cat-sources `printf '%s\n' $+ | sort` > $@
 
 build/%.o: src/%.c urp.h
 	avr-gcc $(flags) -c -o $@ $<
