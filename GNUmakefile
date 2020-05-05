@@ -20,4 +20,4 @@ build/%.o: src/%.c urp.h
 
 .PHONY: clean
 clean:
-	rm -f $(static) $(single-file) $(objects)
+	rm -f $(static) $(objects)
