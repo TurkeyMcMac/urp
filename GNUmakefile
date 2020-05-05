@@ -1,7 +1,7 @@
 static = liburp.a
 single-file = urp.c
 mcu = atmega328p
-flags = -mmcu=$(mcu) -std=gnu89 -Wall -Wextra -O3 $(CFLAGS)
+flags = -mmcu=$(mcu) -ansi -Wall -Wextra -O3 $(CFLAGS)
 
 sources = $(wildcard src/urp_*.c)
 objects = $(patsubst src/%.c, build/%.o, $(sources))
