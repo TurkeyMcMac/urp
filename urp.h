@@ -10,9 +10,13 @@ typedef int16_t URPTR;
 
 #define URP_PGM(pgm) ((URPTR)(pgm) | URP_PGM_MARKER_)
 
+#define URP_NULL URP_RAM((void *)0)
+
 #define URP_IS_RAM(ptr) (((ptr) & URP_PGM_MARKER_) == 0)
 
 #define URP_IS_PGM(ptr) (((ptr) & URP_PGM_MARKER_) != 0)
+
+#define URP_IS_NULL(ptr) ((void *)((ptr) & ~URP_PGM_MARKER_) == (void *)0)
 
 #define URP_RAM_ADDR(ptr) ((void *)(ptr))
 
@@ -36,7 +40,8 @@ void *urp_memccpy(void *dest, URPTR src, int c, size_t n);
 
 void *urp_memcpy(void *dest, URPTR src, size_t n);
 
-/* NOT TRIVIAL: URPTR urp_memmem(URPTR h, size_t hl, URPTR n, size_t nl); */
+/* NOT TRIVIAL */
+URPTR urp_memmem(URPTR h, size_t hl, URPTR n, size_t nl);
 
 URPTR urp_memrchr(URPTR ptr, int c, size_t n);
 
@@ -48,15 +53,19 @@ URPTR urp_strchr(URPTR str, int c);
 
 URPTR urp_strchrnul(URPTR str, int c);
 
-/* NOT TRIVIAL: int urp_strcmp(URPTR a, URPTR b); */
+/* NOT TRIVIAL */
+int urp_strcmp(URPTR a, URPTR b);
 
 char *urp_strcpy(char *dest, URPTR src);
 
-/* NOT TRIVIAL: int urp_strcasecmp(URPTR a, URPTR b); */
+/* NOT TRIVIAL */
+int urp_strcasecmp(URPTR a, URPTR b);
 
-/* NOT TRIVIAL: URPTR urp_strcasestr(URPTR inside, URPTR find); */
+/* NOT TRIVIAL */
+URPTR urp_strcasestr(URPTR inside, URPTR find);
 
-/* NOT TRIVIAL: size_t urp_strcspn(URPTR str, URPTR reject); */
+/* NOT TRIVIAL */
+size_t urp_strcspn(URPTR str, URPTR reject);
 
 size_t urp_strlcat(char *dest, URPTR src, size_t n);
 
@@ -66,23 +75,28 @@ size_t urp_strlen(URPTR str);
 
 size_t urp_strnlen(URPTR str, size_t n);
 
-/* NOT TRIVIAL: int urp_strncmp(URPTR a, URPTR b, size_t n); */
+/* NOT TRIVIAL */
+int urp_strncmp(URPTR a, URPTR b, size_t n);
 
-/* NOT TRIVIAL: int urp_strncasecmp(URPTR a, URPTR b, size_t n); */
+/* NOT TRIVIAL */
+int urp_strncasecmp(URPTR a, URPTR b, size_t n);
 
 char *urp_strncat(char *dest, URPTR src, size_t n);
 
 char *urp_strncpy(char *dest, URPTR src, size_t n);
 
-/* NOT TRIVIAL: URPTR urp_strpbrk(URPTR str, URPTR accept); */
+/* NOT TRIVIAL */
+URPTR urp_strpbrk(URPTR str, URPTR accept);
 
 URPTR urp_strrchr(URPTR str, int c);
 
 char *urp_strsep(char **str, URPTR delim);
 
-/* NOT TRIVIAL: URPTR urp_strspn(URPTR str, URPTR accept); */
+/* NOT TRIVIAL */
+size_t urp_strspn(URPTR str, URPTR accept);
 
-/* NOT TRIVIAL: URPTR urp_strstr(URPTR h, URPTR n); */
+/* NOT TRIVIAL */
+URPTR urp_strstr(URPTR h, URPTR n);
 
 char *urp_strok(char *str, URPTR delim);
 
