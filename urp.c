@@ -159,6 +159,18 @@ int urp_strcasecmp(URPTR a, URPTR b)
 	}
 	return (int)a_byte - (int)b_byte;
 }
+#line 1 "src/urp_strcasestr.c"
+#include "urp.h"
+
+URPTR urp_strcasestr(URPTR h, URPTR n)
+{
+	size_t nl = urp_strlen(n);
+	while (urp_read_byte(h)) {
+		if (!urp_strncasecmp(h, n, nl)) return h;
+		++h;
+	}
+	return URP_NULL;
+}
 #line 1 "src/urp_strcat.c"
 #include "urp.h"
 #include <avr/pgmspace.h>
