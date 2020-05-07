@@ -4,6 +4,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * This file tests the non-trivial functions. These are functions that cannot be
+ * implemented by shelling out to the standard library because they take
+ * multiple URPTR parameters.
+ *
+ * Once the tests complete, if they succeeded, bit 5 of port B is set. If one
+ * failed, bit 4 of port B is set. I recommend locating the failing test using a
+ * manual binary search through the code. The success/failure indicator is not
+ * great, but I don't want to bother with UART.
+ */
+
 static void init(void)
 {
 	DDRB |= _BV(PB4) | _BV(PB5);
