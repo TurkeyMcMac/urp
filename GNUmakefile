@@ -2,7 +2,7 @@ static = liburp.a
 single-file = urp.c
 tests = tests.hex
 mcu = atmega328p
-flags = -mmcu=$(mcu) -ansi -Wall -Wextra -O3 $(CFLAGS)
+flags = -mmcu=$(mcu) -std=gnu99 -Wall -Wextra -O3 $(CFLAGS)
 # Test upload parameters:
 programmer = arduino
 partno = m328p
