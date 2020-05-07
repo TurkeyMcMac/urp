@@ -7,8 +7,9 @@ memory.) This is to avoid situations like the standard library needing both
 
 ## Development
 
-AVR GCC, AVR binutils, and AVR libc are required for compilation. `avrdude` is
-needed to upload the tests in `tests.c` to a microcontroller and run them.
+GNU Make, AVR GCC, AVR binutils, and AVR libc are required for compilation.
+`avrdude` is needed to upload the tests in `tests.c` to a microcontroller and
+run them.
 
 Make stuff with the following commands:
 
