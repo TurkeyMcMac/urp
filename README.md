@@ -5,6 +5,39 @@ means that the same code can read memory from either RAM or flash (program
 memory.) This is to avoid situations like the standard library needing both
 `strlen` and `strlen_P`.
 
+## Development
+
+AVR GCC, AVR binutils, and AVR libc are required for compilation. `avrdude` is
+needed to upload the tests in `tests.c` to a microcontroller and run them.
+
+Make stuff with the following commands:
+
+Create liburp.a, urp.c, and tests:
+```
+make
+```
+
+Compile liburp.a, the static library:
+```
+make liburp.a
+```
+
+Concatenate the sources into one file (pre-built in this repository):
+```
+make urp.c
+```
+
+Compile the tests:
+```
+make tests
+```
+
+Upload the tests to a microcontroller with `avrdude`, with `port` being the USB
+tty to use, e.g. `/dev/ttyUSB0`:
+```
+make port=... upload-tests
+```
+
 ## Design
 
 For API information, see `urp.h`.
