@@ -35,10 +35,7 @@ static void fail(void)
 #ifdef assert
 #	undef assert
 #endif
-static void assert(int8_t cond)
-{
-	if (!cond) fail();
-}
+#define assert(cond) ((cond) ? (void)0 : fail())
 
 static void test_memmem(void)
 {
