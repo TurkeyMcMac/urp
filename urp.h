@@ -154,7 +154,7 @@ size_t urp_strspn(URPTR str, URPTR accept);
 /* NOT TRIVIAL */
 URPTR urp_strstr(URPTR h, URPTR n);
 
-char *urp_strok(char *str, URPTR delim);
+char *urp_strtok(char *str, URPTR delim);
 
 char *urp_strtok_r(char *str, URPTR delim, char **last);
 

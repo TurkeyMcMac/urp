@@ -354,16 +354,6 @@ size_t urp_strnlen(URPTR str, size_t n)
 	else /* if (URP_IS_PGM(str)) */
 		return strnlen_P(URP_PGM_ADDR(str), n);
 }
-#line 1 "src/urp_strok.c"
-#include "urp.h"
-#include <avr/pgmspace.h>
-#include <string.h>
-
-char *urp_strok(char *str, URPTR delim)
-{
-	static char *last;
-	return urp_strtok_r(str, delim, &last);
-}
 #line 1 "src/urp_strpbrk.c"
 #include "urp.h"
 
@@ -425,6 +415,16 @@ URPTR urp_strstr(URPTR h, URPTR n)
 		++h;
 	}
 	return URP_NULL;
+}
+#line 1 "src/urp_strtok.c"
+#include "urp.h"
+#include <avr/pgmspace.h>
+#include <string.h>
+
+char *urp_strtok(char *str, URPTR delim)
+{
+	static char *last;
+	return urp_strtok_r(str, delim, &last);
 }
 #line 1 "src/urp_strtok_r.c"
 #include "urp.h"
